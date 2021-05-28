@@ -108,6 +108,7 @@ class MT_DHCP_Account extends MT_Account {
                     'target' => $ip,
                     'max-limit' => $rate,
                     'limit-at' => $rate,
+                    'queue' => $this->get_queue_type(),
                     'comment' => $this->entity->id . ',' . $this->data->clientName,
         );
     }

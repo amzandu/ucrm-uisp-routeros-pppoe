@@ -115,6 +115,18 @@ class MT_Account extends MT {
             }
         }
     }
+    
+    public function get_queue_type(){ //hard code for tim
+        $ul = $this->entity->uploadSpeed."mbps upload";
+        $dl = $this->entity->downloadSpeed."mbps download";
+        $queues = array($ul => 'default-small',$dl=>'default-small');
+        $api = $this->connect();
+        $api->write('/queue/type/print');
+        foreach($api->read()as $item){
+            $queues[strtolower($item['name'])] = $item['name'];
+        }
+        return $queues[$ul]."/".$queues[$dl];
+    }
 
     protected function ip_get($device = false) {
         $addr = null;
