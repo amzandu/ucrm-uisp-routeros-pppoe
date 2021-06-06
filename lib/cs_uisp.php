@@ -48,11 +48,15 @@ class CS_UISP {
     }
 
     private function set_opts() {
+        global $conf ;
         $this->set_url();
         curl_setopt($this->ch, CURLOPT_TIMEOUT, 30);
         curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($this->ch, CURLOPT_HEADER, false);
-        curl_setopt($this->ch, CURLOPT_SSL_VERIFYPEER, 0);
+        if($conf->disable_ssl_verify){
+            curl_setopt($this->ch, CURLOPT_SSL_VERIFYPEER, 0);
+            curl_setopt($this->ch, CURLOPT_SSL_VERIFYHOST, 0);
+        }
         $this->set_key();
         $this->set_method();
         $this->set_body();
