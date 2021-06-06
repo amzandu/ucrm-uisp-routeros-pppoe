@@ -95,7 +95,7 @@ class MT_DHCP_Account extends MT_Account {
                     'mac-address' => $this->entity->{$conf->mac_addr_attr},
                     'insert-queue-before' => 'bottom',
                     'address-lists' => $list,
-                    'comment' => $this->entity->id . ',' . $this->data->clientName,
+                    'comment' => $this->entity->id . ','.$this->entity->clientId."-" . $this->data->clientName,
         );
     }
 
@@ -104,12 +104,12 @@ class MT_DHCP_Account extends MT_Account {
         $rate = $this->entity->downloadSpeed . "M/"
                     . $this->entity->uploadSpeed . "M";
         return (object) array(
-                    'name' => 'dhcp-<'.$this->entity->{$conf->mac_addr_attr}.'>',
+                    'name' => 'queue-<'.$this->entity->clientId."-".$this->entity->{$conf->mac_addr_attr}.'>',
                     'target' => $ip,
                     'max-limit' => $rate,
                     'limit-at' => $rate,
                     'queue' => $this->get_queue_type(),
-                    'comment' => $this->entity->id . ',' . $this->data->clientName,
+                    'comment' => $this->entity->id . ','.$this->entity->clientId."-" . $this->data->clientName,
         );
     }
 
