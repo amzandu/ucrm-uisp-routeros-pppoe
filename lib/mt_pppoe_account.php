@@ -97,7 +97,7 @@ class MT_PPPoE_Account extends MT_Account {
                         'name' => $this->entity->{$conf->pppoe_user_attr},
                         'password' => $this->entity->{$conf->pppoe_pass_attr},
                         'profile' => $profile,
-                        'comment' => $this->entity->id . ','.$this->entity->clientId."-" . $this->data->clientName,,
+                        'comment' => $this->entity->id . ','.$this->entity->clientId."-" . $this->data->clientName,
                     ),
         );
         if(in_array($this->data->changeType,['edit','move'])){

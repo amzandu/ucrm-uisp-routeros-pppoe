@@ -104,7 +104,7 @@ class MT_DHCP_Account extends MT_Account {
         $rate = $this->entity->downloadSpeed . "M/"
                     . $this->entity->uploadSpeed . "M";
         return (object) array(
-                    'name' => 'queue-<'.$this->entity->clientId."-".$this->entity->{$conf->mac_addr_attr}.'>',
+                    'name' => 'queue-<'.$this->entity->clientId."-".$this->data->clientName.'>',
                     'target' => $ip,
                     'max-limit' => $rate,
                     'limit-at' => $rate,
