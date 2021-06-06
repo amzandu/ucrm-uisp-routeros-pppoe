@@ -12,7 +12,7 @@ Class CS_IPv4 {
     private $pool; // active configured pool
 
     public function assign($device = false) {
-        $this->device = $device;
+        $this->device = strtolower($device);
         $pool = $this->get_ppp_pool();
         if ($device) {
             $pool = $this->get_device_pool();
