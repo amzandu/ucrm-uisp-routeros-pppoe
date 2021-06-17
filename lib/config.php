@@ -8,7 +8,7 @@ return (object) array(
     // UISP Token
     'uisp_url' => 'https://localhost/api/v1.0',
     'uisp_token' => '', // create token in unms and paste here
-    'disable_ssl_veriry' => true ,
+    'disable_ssl_verify' => true ,
     
     // file paths
     'devices_file' => 'json/devices.json', // used to map device name to device address
@@ -29,6 +29,7 @@ return (object) array(
     'pppoe_pass_attr' => 'pppoePassword',
     'device_name_attr' => 'deviceName',
     'mac_addr_attr' => 'dhcpMacAddress',
+    'ip_addr_attr' => 'ipAddress',
 );
 
 

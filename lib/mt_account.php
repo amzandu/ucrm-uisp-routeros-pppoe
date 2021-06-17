@@ -129,7 +129,14 @@ class MT_Account extends MT {
     }
 
     protected function ip_get($device = false) {
+        global $conf ;
         $addr = null;
+        //user supplied ip address
+        if(property_exists($this->data->extraData->entity, $conf->ip_addr_attr)){
+            if($this->data->extraData->entity->{$conf->ip_addr_attr}){
+                return $this->data->extraData->entity->{$conf->ip_addr_attr};
+            }
+        }
         if (in_array($this->data->changeType, ['insert', 'move', 'upgrade'])) {
             $ip = new CS_IPv4();
             $addr = $ip->assign($device);  // acquire new address

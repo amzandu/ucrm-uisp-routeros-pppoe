@@ -6,3 +6,5 @@ nbproject/private/private.xml
 nbproject/private/private.properties
 nbproject/private/config.properties
 json/test.json
+/web/
+/lib/config.old.php
